@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lets Quiz</title>
+    <link rel="stylesheet" href="..\styles.css">
+
+    <style>
+        .activePage {
+            color: black;
+            font-weight: bold;
+        }
+
+        .tagHeight {
+            height: auto;
+        }
+        </style>
+    </head>
+<body>
+
+    <nav class="menu-horizontal">
+        <div class="logo">
+            <a href="../index.html"><img src="..\assets\navbar_logo.jpg" alt="Logo" class="logo-image"></a>
+        </div>
+        <ul class="nav-bar">
+            <li>
+                <a href="../index.html">Home   </a>
+            </li>
+            <li class="dropdown">
+                <a href="">Topics </a>
+                <ul class="dropdown-menu">
+                    <li><a href="science.html">Science</a></li>
+                    <li><a href="pop_culture.html">Pop Culture</a></li>
+                    <li><a href="general_knowledge.html">General Knowledge</a></li>
+                    <li><a href="disney_channel.html">Disney</a></li>
+                    <li><a href="capital_country.html">Geography</a></li>
+                    <li><a href="brain_teasers.html">Brain Teasers</a></li>
+                    <li><a href="sports_games.html">Sports</a></li>
+                    <li><a href="india_quiz.html">India</a></li>
+                    <li><a href="special_daily.html">Special Quiz</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="../resources.html">Resources  </a>
+            </li>
+            <li>
+                <a href="../contact.html">Contact Us   </a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1 class="main-heading"><span>Special Daily Quiz</span>
+        </h1>
+        <div class="quiz-para">
+            <img src="..\assets\special_daily.jpg" class="quiz-para">
+            <p class="quiz-para">            
+                Welcome to today’s special daily quiz—a unique mix of questions that changes every day! With topics ranging from current events to random trivia, this quiz is sure to keep you on your toes. It’s a fun way to test your knowledge and challenge yourself daily. Ready to see what today’s quiz has in store? Let’s get started!
+            </p>
+        </div>
+
+        <div class="clear"></div>
+
+        <div class="container">
+            <h1 class="heading">Instructions<span> : How to attempt the quiz</span>
+            </h1>
+            <p>            
+                You will be seeing 5 random questions out of a set of total 15 questions.<br>
+                The questions are single correct objective type.<br>
+                You have to choose the correct answer out of the given options.<br>
+                Once you are done, click on the submit button to get your score.<br>
+                Along with the score, you will also be able to see which questions you got correct and which were incorrect, 
+                along with the actual answer.<br>
+                You will also see be able to try the quiz again with a new set of questions.<br>
+            </p>      
+    </div>
+
+
+    <div class="quiz">
+        <form id="quiz-form" class="quiz-form">
+            <div id="quiz"></div>
+            <button type="button" class="bottom-btn" onclick="showResults()">Submit</button>
+        </form>
+        <div id="score"></div> 
+        <div id="result"></div>
+    </div>
+</div>
+
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section nav-section">
+               
+                <ul class="footer-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../resources.html">Resources</a></li>
+                    <li><a href="../contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+    
+            <div class="footer-section about-section">
+                
+                <p>Made with ❤️ by Darpana</p>
+            </div>
+    
+            <div class="footer-section contact-section">
+               
+                <ul class="footer-links">
+                    <li><a href="https://www.linkedin.com/in/darpana-desai-20b249289/">LinkedIn</a></li>
+                    <li><a href="https://github.com/Darpana-iitgn">Github</a></li>
+                    <li><a href="mailto:23110085@iitgn.ac.in">Email</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Array of quiz questions
+        const questions = [
+            { question: "Who was the first Indian bowler to take all ten wickets in an inning?", options: ["Anil Kumble", "Harbhajan Singh", "Kapil Dev"], correctAnswer: "Anil Kumble" },
+            { question: "Which Hindu god is believed to have 6 heads?", options: ["Lord Shiva", "Lord Kartikey", "Lord Ganesha"], correctAnswer: "Lord Kartikeya" },
+            { question: "Who was the first Prime Minister of USA?", options: ["Bill Clinton", "Abraham Lincoln", "Peyton Randolph"], correctAnswer: "Peyton Randolph" },
+            { question: "Entomology is the science that studies", options: ["Human behavior ",  "Minerals", "Insects"], correctAnswer: "Insects" },
+            { question: "Which of the following countries isn\'t a part of Gulf Cooperation?", options: ["Saudi Arabia", "Bahrain",  "Iraq"], correctAnswer: "Iraq" },
+            { question: "In which year United Nations was formed?", options: ["1934",  "1947", "1945"], correctAnswer: "1945" },
+            { question: "In which series did Bodyline bowling become controversial?", options: ["Ashes,1932", "Border-Gavaskar Trophy,2007-08", "Pataudi Trophy,2011"], correctAnswer: "Ashes,1932" },
+            { question: "Where is the International Court of Justice located?", options: ["Hague", "Geneva",  "Paris"], correctAnswer: "Hague" },
+            { question: "Where are 2028 Olympics to be held?", options: ["London", "Paris", "Los Angeles"], correctAnswer: "Los Angeles" },
+            { question: "As per Forest Act, cultivation of which of the following is a non-forest activity?", options: ["Mulberry", "Rubber", "All of the above"], correctAnswer: "All of the above" },
+            { question: "Who was the queen of England when Royal Charter was granted to East India Company?", options: [" Queen Elizabeth 1 ", "Queen Victoria ",  "Queen Mary 2"], correctAnswer: "Queen Elizabeth 1" },
+            { question: "Who is the first Indian wrestler to win a medal at Asian Games?", options: ["Babita Kumari", "Vinesh Phogat", "Sakshi Malik", ], correctAnswer: "Vinesh Phogat" },
+            { question: "Name the Indian tennis player who turned to Hollywood Filmmaker.", options: [ "Mahesh Bhupathi", "Vijay Amritraj", "Ashok Amritraj"], correctAnswer: "Ashok Amritraj" },
+            { question: "Who is the writer of the book \'House of Cards\'?", options: ["Sudha Murthy", "Chetan Bhagat", "Arundhati Roy", ], correctAnswer: "Sudha Murthy" },
+            { question: "Which Indian state has most airports?", options: ["Maharashtra", "Gujarat", "Rajasthan"], correctAnswer: "Gujarat" }
+        ];
+
+// Function to load random questions
+function loadQuestions() {
+    const quizContainer = document.getElementById('quiz');
+    quizContainer.innerHTML = ''; // Clear previous questions
+
+    // Randomly select 5 questions from the questions array
+    const randomQuestions = questions.sort(() => 0.5 - Math.random()).slice(0, 5);
+
+    randomQuestions.forEach((question, index) => {
+        const questionElement = document.createElement('div');
+        questionElement.classList.add('question-container'); // Added class for styling if needed
+        questionElement.innerHTML = `
+            <p>${index + 1}. ${question.question}</p>
+            ${question.options.map((option) => `
+                <label>
+                    <input type="radio" name="question${index}" value="${option}">
+                    ${option}
+                </label>
+            `).join('')}
+            <span class="feedback" style="display: none;"></span> <!-- Feedback span, hidden initially -->
+        `;
+        quizContainer.appendChild(questionElement);
+    });
+}
+
+let score = 0; // Initialize score variable
+let userAnswers = []; // Array to store user answers
+
+function showResults() {
+    const quizContainers = document.querySelectorAll('.question-container');
+
+    // Clear previous feedback and calculate score
+    score = 0; // Reset score
+    quizContainers.forEach((container, index) => {
+        const selectedOption = container.querySelector(`input[name="question${index}"]:checked`);
+        const feedback = container.querySelector('.feedback');
+
+        if (selectedOption) {
+            const selectedAnswer = selectedOption.value;
+            const correctAnswer = questions[index].correctAnswer;
+
+            // Check if the answer is correct
+            if (selectedAnswer === correctAnswer) {
+                score++;
+                feedback.innerHTML = '&#10004;'; // Green tick
+                feedback.style.color = 'green';
+            } else {
+                feedback.innerHTML = `❌ (Correct: ${correctAnswer})`; // Red cross and correct answer
+                feedback.style.color = 'red';
+            }
+            feedback.style.display = 'inline'; // Show feedback
+        } else {
+            feedback.innerHTML = '❌ (No answer selected)'; // Indicate no answer was selected
+            feedback.style.color = 'orange'; // Optional color for no answer
+            feedback.style.display = 'inline'; // Show feedback
+        }
+    });
+
+    // Display final score
+    const scoreContainer = document.getElementById('score');
+    scoreContainer.innerHTML = `Your score: ${score} out of 5`;
+
+    // Change button to "Try Again"
+    const submitButton = document.querySelector('.bottom-btn');
+    submitButton.innerHTML = 'Try Again';
+    submitButton.setAttribute('onclick', 'restartQuiz()');
+}
+
+function restartQuiz() {
+    // Clear score and results
+    score = 0;
+    const scoreContainer = document.getElementById('score');
+    scoreContainer.innerHTML = '';
+
+    // Reload quiz questions
+    loadQuestions();
+}
+
+// Load questions initially when the page loads
+loadQuestions();
+       
+    </script>
+
+</body>
+</html>

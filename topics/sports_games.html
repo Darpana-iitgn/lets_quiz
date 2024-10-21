@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lets Quiz</title>
+    <link rel="stylesheet" href="..\styles.css">
+
+    <style>
+        .activePage {
+            color: black;
+            font-weight: bold;
+        }
+
+        .tagHeight {
+            height: auto;
+        }
+        </style>
+    </head>
+<body>
+
+    <nav class="menu-horizontal">
+        <div class="logo">
+            <a href="../index.html"><img src="..\assets\navbar_logo.jpg" alt="Logo" class="logo-image"></a>
+        </div>
+        <ul class="nav-bar">
+            <li>
+                <a href="../index.html">Home   </a>
+            </li>
+            <li class="dropdown">
+                <a href="">Topics </a>
+                <ul class="dropdown-menu">
+                    <li><a href="science.html">Science</a></li>
+                    <li><a href="pop_culture.html">Pop Culture</a></li>
+                    <li><a href="general_knowledge.html">General Knowledge</a></li>
+                    <li><a href="disney_channel.html">Disney</a></li>
+                    <li><a href="capital_country.html">Geography</a></li>
+                    <li><a href="brain_teasers.html">Brain Teasers</a></li>
+                    <li><a href="sports_games.html">Sports</a></li>
+                    <li><a href="india_quiz.html">India</a></li>
+                    <li><a href="special_daily.html">Special Quiz</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="../resources.html">Resources  </a>
+            </li>
+            <li>
+                <a href="../contact.html">Contact Us   </a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1 class="main-heading"><span>Sports and Games</span>
+        </h1>
+        <div class="quiz-para">
+            <img src="..\assets\sports_games.jpg" class="quiz-para">
+            <p class="quiz-para">            
+                Calling all sports fans! This quiz is designed to challenge your knowledge of the world of sports—whether it’s football, cricket, basketball, or any other game that gets your heart racing. From historic wins to legendary athletes, this quiz covers a range of thrilling moments in sports history. Let’s see how much of a sports expert you are!
+            </p>
+        </div>
+
+        <div class="clear"></div>
+
+        <div class="container">
+            <h1 class="heading">Instructions<span> : How to attempt the quiz</span>
+            </h1>
+            <p >            
+                You will be seeing 5 random questions out of a set of total 15 questions.<br>
+                The questions are single correct objective type.<br>
+                You have to choose the correct answer out of the given options.<br>
+                Once you are done, click on the submit button to get your score.<br>
+                Along with the score, you will also be able to see which questions you got correct and which were incorrect, 
+                along with the actual answer.<br>
+                You will also see be able to try the quiz again with a new set of questions.<br>
+            </p>      
+    </div>  
+
+
+<div class="quiz">
+    <form id="quiz-form" class="quiz-form">
+        <div id="quiz"></div>
+        <button type="button" class="bottom-btn" onclick="showResults()">Submit</button>
+    </form>
+    <div id="score"></div> 
+    <div id="result"></div>
+</div>
+</div>
+
+
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-section nav-section">
+           
+            <ul class="footer-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../resources.html">Resources</a></li>
+                <li><a href="../contact.html">Contact Us</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section about-section">
+            
+            <p>Made with ❤️ by Darpana</p>
+        </div>
+
+        <div class="footer-section contact-section">
+           
+            <ul class="footer-links">
+                <li><a href="https://www.linkedin.com/in/darpana-desai-20b249289/">LinkedIn</a></li>
+                <li><a href="https://github.com/Darpana-iitgn">Github</a></li>
+                <li><a href="mailto:23110085@iitgn.ac.in">Email</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Array of quiz questions
+    const questions = [
+    {
+        question: "Who is the only athlete to win Olympic gold medals in both the 100m and 400m?",
+        options: ["Michael Johnson", "Usain Bolt", "Carl Lewis"],
+        answer: "Michael Johnson"
+    },
+    {
+        question: "Which country won the first Cricket World Cup?",
+        options: ["West-Indies", "England", "Australia", "Pakistan"],
+        answer: "West Indies"
+    },
+    {
+        question: "Who holds the most Grand-Slam titles in Open Era?",
+        options: ["Novak Djokovic", "Roger Federer", "Rafael Nadal", "Margaret Court"],
+        answer: "Margaret Court"
+    },
+    {
+        question: "Headquarters of International Olympic Committee",
+        options: ["Lausanne", "Zurich", "Bern", "Geneva"],
+        answer: "Lausanne"
+    },
+    {
+        question: "Who won the Men's Singles title at the US Open in 2021?",
+        options: ["Novak Djokovic", "Rafael Nadal", "Daniil Medvedev", "Carlos Alcaraz"],
+        answer: "Daniil Medvedev"
+    },
+    {
+        question: "Who won Ballon d'Or award in 2021?",
+        options: ["Lionel Messi", "Cristiano Ronaldo", "Kylien Mbappe", "Mohammad Salah"],
+        answer: "Lionel Messi"
+    },
+    {
+        question: "Who won the Men's Singles title in Australia Open 2022?",
+        options: ["Novak Djokovic", "Rafael Nadal", "Daniil Medvedev", "Carlos Alcaraz"],
+        answer: "Rafael Nadal"
+    },
+    {
+        question: "Who won the FIFA World Cup in 2018?",
+        options: ["France", "Germany", "Brazil", "Argentina"],
+        answer: "France"
+    },
+    {
+        question: "Who won Super Bowl 2023?",
+        options: ["Kansas City Chiefs", "Tampa Bay Buccaneers", "New England Patriots", "Los Angeles Rams"],
+        answer: "Kansas City Chiefs"
+    },
+    {
+        question: "What country has won the most soccer World Cup championships?",
+        options: ["France", "Germany", "Brazil", "Argentina"],
+        answer: "Brazil"
+    },
+    {
+        question: "In what year did women's boxing become an Olympic Sport?",
+        options: ["2000", "2004", "2008", "2012"],
+        answer: "2004"
+    },
+    {
+        question: "What country's national cricket team is known as the Men in Blue?",
+        options: ["India", "Australia", "England", "New Zealand"],
+        answer: "India"
+    },
+    {
+        question: "When was the first cricket T20 World Cup played?",
+        options: ["2006", "2007", "2008", "2009"],
+        answer: "2007"
+    },
+    {
+        question: "What is a batsman getting out on zero in cricket called?",
+        options: ["Duck", "Turkey", "Chicken", "Cuckoo"],
+        answer: "Duck"
+    },
+    {
+        question: "Who was the leading run-scorer in the year 2023 in cricket?",
+        options: ["Shubman Gill", "Virat Kohli", "Daryl Mitchell", "Rohit Sharma"],
+        answer: "Shubman Gill"
+    }
+];
+
+// Function to load random questions
+function loadQuestions() {
+const quizContainer = document.getElementById('quiz');
+quizContainer.innerHTML = ''; // Clear previous questions
+
+// Randomly select 5 questions from the questions array
+const randomQuestions = questions.sort(() => 0.5 - Math.random()).slice(0, 5);
+
+randomQuestions.forEach((question, index) => {
+    const questionElement = document.createElement('div');
+    questionElement.classList.add('question-container'); // Added class for styling if needed
+    questionElement.innerHTML = `
+        <p>${index + 1}. ${question.question}</p>
+        ${question.options.map((option) => `
+            <label>
+                <input type="radio" name="question${index}" value="${option}">
+                ${option}
+            </label>
+        `).join('')}
+        <span class="feedback" style="display: none;"></span> <!-- Feedback span, hidden initially -->
+    `;
+    quizContainer.appendChild(questionElement);
+});
+}
+
+let score = 0; // Initialize score variable
+let userAnswers = []; // Array to store user answers
+
+function showResults() {
+const quizContainers = document.querySelectorAll('.question-container');
+
+// Clear previous feedback and calculate score
+score = 0; // Reset score
+quizContainers.forEach((container, index) => {
+    const selectedOption = container.querySelector(`input[name="question${index}"]:checked`);
+    const feedback = container.querySelector('.feedback');
+
+    if (selectedOption) {
+        const selectedAnswer = selectedOption.value;
+        const correctAnswer = questions[index].correctAnswer;
+
+        // Check if the answer is correct
+        if (selectedAnswer === correctAnswer) {
+            score++;
+            feedback.innerHTML = '&#10004;'; // Green tick
+            feedback.style.color = 'green';
+        } else {
+            feedback.innerHTML = `❌ (Correct: ${correctAnswer})`; // Red cross and correct answer
+            feedback.style.color = 'red';
+        }
+        feedback.style.display = 'inline'; // Show feedback
+    } else {
+        feedback.innerHTML = '❌ (No answer selected)'; // Indicate no answer was selected
+        feedback.style.color = 'orange'; // Optional color for no answer
+        feedback.style.display = 'inline'; // Show feedback
+    }
+});
+
+// Display final score
+const scoreContainer = document.getElementById('score');
+scoreContainer.innerHTML = `Your score: ${score} out of 5`;
+
+// Change button to "Try Again"
+const submitButton = document.querySelector('.bottom-btn');
+submitButton.innerHTML = 'Try Again';
+submitButton.setAttribute('onclick', 'restartQuiz()');
+}
+
+function restartQuiz() {
+// Clear score and results
+score = 0;
+const scoreContainer = document.getElementById('score');
+scoreContainer.innerHTML = '';
+
+// Reload quiz questions
+loadQuestions();
+}
+
+// Load questions initially when the page loads
+loadQuestions();
+   
+</script>
+
+</body>
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lets Quiz</title>
+    <link rel="stylesheet" href="..\styles.css">
+
+    <style>
+        .activePage {
+            color: black;
+            font-weight: bold;
+        }
+
+        .tagHeight {
+            height: auto;
+        }
+        </style>
+    </head>
+<body>
+
+    <nav class="menu-horizontal">
+        <div class="logo">
+            <a href="../index.html"><img src="..\assets\navbar_logo.jpg" alt="Logo" class="logo-image"></a>
+        </div>
+        <ul class="nav-bar">
+            <li>
+                <a href="../index.html">Home   </a>
+            </li>
+            <li class="dropdown">
+                <a href="">Topics </a>
+                <ul class="dropdown-menu">
+                    <li><a href="science.html">Science</a></li>
+                    <li><a href="pop_culture.html">Pop Culture</a></li>
+                    <li><a href="general_knowledge.html">General Knowledge</a></li>
+                    <li><a href="disney_channel.html">Disney</a></li>
+                    <li><a href="capital_country.html">Geography</a></li>
+                    <li><a href="brain_teasers.html">Brain Teasers</a></li>
+                    <li><a href="sports_games.html">Sports</a></li>
+                    <li><a href="india_quiz.html">India</a></li>
+                    <li><a href="special_daily.html">Special Quiz</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="../resources.html">Resources  </a>
+            </li>
+            <li>
+                <a href="../contact.html">Contact Us   </a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1 class="main-heading"><span>Pop Culture</span>
+        </h1>
+        <div class="quiz-para">
+            <img src="..\assets\pop_culture.jpg" class="quiz-para">
+            <p class="quiz-para">            
+                If you’re up to date with the latest trends, music, movies, and viral moments, this pop culture quiz is for you! Covering everything from celebrity gossip to iconic TV shows and hit songs, this quiz is all about the world of entertainment. Whether you’re a pop culture pro or just curious about the headlines, let's dive in and see how in-the-know you are!
+            </p>
+        </div>
+
+        <div class="clear"></div>
+
+        <div class="container">
+            <h1 class="heading">Instructions<span> : How to attempt the quiz</span>
+            </h1>
+            <p >            
+                You will be seeing 5 random questions out of a set of total 15 questions.<br>
+                The questions are subjective and you will be required to type out your answers.<br>
+                You can write your answers in the text box below the corresponding question.<br>
+                The answers are short phrases, not complete sentences.<br>
+                Once you are done, click on the submit button to get your score.<br>
+                Along with the score, you will also be able to see which questions you got correct and which were incorrect, 
+                along with the actual answer.<br>
+                You will also see be able to try the quiz again with a new set of questions.<br>
+            </p>      
+    </div>
+    </div>
+
+    <div class="quiz">
+                <form id="quiz-form" class="quiz-form">
+                    <script>
+                            const que = [
+                            'Madhuri Dixit\'s name in Tezaab was?',
+                            'Aishwarya Rai was crowned Miss World in which year?',
+                            'Who played the role of Emperor Akbar in the movie Mughal e Azam?',
+                            'Which of the following Indian filmmakers was given the title of \'Ambassador of Interlaken\' in 2011 at Switzerland?',  
+                            'Which was the first color Bollywood movie?',
+                            'The first Hollywood film in which A R Rahman gave music',
+                            'The recent Oscar winning movie of Christopher Nolan?.', 
+                            'First Animated film',
+                            'Hollywood is in', 
+                            'Total Number of Best actor nominations for Amitabh Bachchan in filmfare',
+                            'The latest album of Taylor Swift?',
+                            'Mother of Kardashian-Jenner sisters',
+                            'What was Elvis Presley\'s first No. 1 hit in the United States?',
+                            'Megan Markle was part of which famous show?',
+                            'First song of Selena Gomez'
+                        ];
+                        const ans=['Mohini','1994','Prithviraj Kapoor','Yash Chopra','Kisan Kanaiya','Slum Dog Billionare',
+                        'Oppenheimer','Fantasmagorie','Los Angeles','28','Midnights','Kris','Heartbreak Hotel','Suits','999'];
+
+                        let selectedQuestions = [];
+                for (let i = 0; i < 5; i++) {
+                    const index = Math.floor(Math.random() * que.length);
+                    selectedQuestions.push({question: que[index], answer: ans[index]});
+                    que.splice(index, 1);
+                    ans.splice(index, 1);
+                }
+                selectedQuestions.forEach((item, i) => {
+                    document.write('<p>' + (i + 1) + '. ' + item.question + '</p>');
+                    document.write('<input type="text" id="answer' + i + '" name="answer' + i + '"><br>');
+                });
+            </script>
+            
+            <button type="button" class="bottom-btn" onclick="checkAnswers()">Submit</button>
+        </form>
+        <div id="result"></div>
+    </div>
+
+
+   <footer class="footer">
+    <div class="footer-content">
+        <div class="footer-section nav-section">
+           
+            <ul class="footer-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../resources.html">Resources</a></li>
+                <li><a href="../contact.html">Contact Us</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section about-section">
+            
+            <p>Made with ❤️ by Darpana</p>
+        </div>
+
+        <div class="footer-section contact-section">
+           
+            <ul class="footer-links">
+                <li><a href="https://www.linkedin.com/in/darpana-desai-20b249289/">LinkedIn</a></li>
+                <li><a href="https://github.com/Darpana-iitgn">Github</a></li>
+                <li><a href="mailto:23110085@iitgn.ac.in">Email</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+
+<script>
+    function checkAnswers() {
+        const resultDiv = document.getElementById('result');
+        let score = 0;
+
+        selectedQuestions.forEach((item, i) => {
+            const userAnswer = document.getElementById('answer' + i).value.trim();
+            if (userAnswer.toLowerCase() === item.answer.toLowerCase()) {
+                score++;
+                document.getElementById('answer' + i).style.borderColor = 'green';
+                document.getElementById('answer' + i).insertAdjacentHTML('afterend', '<span class="result-icon correct">&#10004;</span>');
+            } else {
+                document.getElementById('answer' + i).style.borderColor = 'red';
+                document.getElementById('answer' + i).insertAdjacentHTML('afterend', '<span class="result-icon incorrect">&#10006; Correct answer: ' + item.answer + '</span>');
+            }
+        });
+
+        resultDiv.innerHTML = 'Your score is: ' + score + '/5';
+        const submitBtn = document.querySelector('.bottom-btn');
+        submitBtn.innerHTML = 'Try Again';
+        submitBtn.setAttribute('onclick', 'location.reload()');
+    }
+</script>
+
+
+
+</body>
+</html>
